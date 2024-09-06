@@ -1,3 +1,27 @@
+/** 
+ MIT 18 H2-TASK: 
+
+Shunday function tuzing, unga string argument pass bolsin. Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
+MASALAN: getDigits("m14i1t") return qiladi "141"
+ **/
+
+function getDigits(a: string) {
+    let natija = ''; 
+    for (let i = 0; i < a.length; i++) {
+        const s = a[i];
+        if (s >= '0' && s <= '9') {
+            natija += s; 
+        }
+    }
+    return natija; 
+}
+
+console.log(getDigits("1c2vd3")); // Javob: "123"
+
+
+
+
+
 /*
 MIT 18 H-TASK: 
 
@@ -6,7 +30,7 @@ MASALAN: getPositive([1, -4, 2]) return qiladi "12"
 
 */ 
 
-function musbatSon(arr:number[]) : string {
+/*function musbatSon(arr:number[]) : string {
     const a = arr.filter(function (i) {
         return i > 0;
     })
@@ -14,7 +38,7 @@ function musbatSon(arr:number[]) : string {
 };    
 
 // Misol uchun:
-console.log(musbatSon([-45, -3, -5, 7, -32])); // javob : 7
+console.log(musbatSon([-45, -3, -5, 7, -32])); */ // javob : 7
 
 
 
