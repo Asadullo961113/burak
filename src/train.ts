@@ -1,4 +1,16 @@
 /** 
+  project standarts
+    - logging standarts
+    - naming standarts
+          function,method,variable => CAMEL
+          class => PSACAL
+          folder, file => KEBAB
+          css => SNAKE
+    - Error Handling      
+ **/
+
+
+/** 
  MIT 18 H2-TASK: 
 
 Shunday function tuzing, unga string argument pass bolsin. Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
