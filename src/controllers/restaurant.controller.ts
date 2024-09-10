@@ -8,6 +8,7 @@ restaurantController.goHome = (req:Request, res: Response) => {
     try {
         console.log("goHome")
         res.send("home page");
+        // send , end, render, redirect, json
     }catch(err) {
        console.log("error go home:", err)
     }
@@ -28,6 +29,24 @@ restaurantController.getSignup = (req:Request, res: Response) => {
         res.send("signup page");
     }catch(err) {
        console.log("error getSignup: ", err)
+    }
+}
+
+restaurantController.processLogin = (req:Request, res: Response) => {
+    try {
+        console.log("processLogin")
+        res.send("DONE");
+    }catch(err) {
+       console.log("error processLogin: ", err)
+    }
+}
+
+restaurantController.processSignup = (req:Request, res: Response) => {
+    try {
+        console.log("processSignup")
+        res.send("DONE");
+    }catch(err) {
+       console.log("error processSignup: ", err)
     }
 }
 
