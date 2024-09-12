@@ -1,3 +1,33 @@
+
+
+function kopQatnashgan(arr: number[]): number | null {
+    const countMap = new Map<number, number>();
+
+    arr.forEach(num => {
+        countMap.set(num, (countMap.get(num) || 0) + 1);
+    });
+
+    let kopQatnashgan: number | null = null;
+    let maxCount = 0;
+
+    countMap.forEach((count, num) => {
+        if (count > maxCount) {
+            maxCount = count;
+            kopQatnashgan = num;
+        }
+    });
+
+    return kopQatnashgan;
+}
+const arr = [1, 8, 3, 8, 5, 4, 8, 4];
+const result = kopQatnashgan(arr);
+console.log(`Eng ko'p takrorlangan raqam: ${result}`);
+
+
+
+
+
+
 /** 
   project standarts
     - logging standarts
@@ -17,18 +47,18 @@ Shunday function tuzing, unga string argument pass bolsin. Function ushbu agrume
 MASALAN: getDigits("m14i1t") return qiladi "141"
  **/
 
-function getDigits(a: string) {
-    let natija = ''; 
-    for (let i = 0; i < a.length; i++) {
-        const s = a[i];
-        if (s >= '0' && s <= '9') {
-            natija += s; 
-        }
-    }
-    return natija; 
-}
+// function getDigits(a: string) {
+//     let natija = ''; 
+//     for (let i = 0; i < a.length; i++) {
+//         const s = a[i];
+//         if (s >= '0' && s <= '9') {
+//             natija += s; 
+//         }
+//     }
+//     return natija; 
+// }
 
-console.log(getDigits("1c2vd3")); // Javob: "123"
+// console.log(getDigits("1c2vd3")); // Javob: "123"
 
 
 

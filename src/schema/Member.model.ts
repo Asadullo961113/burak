@@ -15,9 +15,9 @@ const memberSchema = new Schema ({
     },
 
     memberNick: {
-        type : String,
-        index : {unique:true, sparse:true},
-        required: true
+        type: String,
+        index: { unique: true, sparse: true },
+        required: true,
     },
 
     memberPhone: {
@@ -27,9 +27,9 @@ const memberSchema = new Schema ({
     },
 
     memberPassword: {
-        type : String,
+        type: String,
         select: false,
-        required: true
+        required: true,
     },
 
     memberAddress: {
