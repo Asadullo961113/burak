@@ -1,27 +1,49 @@
 
 
-function kopQatnashgan(arr: number[]): number | null {
-    const countMap = new Map<number, number>();
-
-    arr.forEach(num => {
-        countMap.set(num, (countMap.get(num) || 0) + 1);
-    });
-
-    let kopQatnashgan: number | null = null;
-    let maxCount = 0;
-
-    countMap.forEach((count, num) => {
-        if (count > maxCount) {
-            maxCount = count;
-            kopQatnashgan = num;
+function UzunSoz(text: string): string {
+    const words = text.split(/\s+/);
+    let engUzun = '';
+    words.forEach(word => {
+        if (word.length > engUzun.length) {
+            engUzun  = word;
         }
     });
 
-    return kopQatnashgan;
+    return engUzun ;
 }
-const arr = [1, 8, 3, 8, 5, 4, 8, 4];
-const result = kopQatnashgan(arr);
-console.log(`Eng ko'p takrorlangan raqam: ${result}`);
+
+const text = "I came from Uzbekistan!";
+const result = UzunSoz(text);
+console.log(`Eng uzun so'z: "${result}"`);
+
+
+
+
+
+
+
+// function kopQatnashgan(arr: number[]): number | null {
+//     const countMap = new Map<number, number>();
+
+//     arr.forEach(num => {
+//         countMap.set(num, (countMap.get(num) || 0) + 1);
+//     });
+
+//     let kopQatnashgan: number | null = null;
+//     let maxCount = 0;
+
+//     countMap.forEach((count, num) => {
+//         if (count > maxCount) {
+//             maxCount = count;
+//             kopQatnashgan = num;
+//         }
+//     });
+
+//     return kopQatnashgan;
+// }
+// const arr = [1, 8, 3, 8, 5, 4, 8, 4];
+// const result = kopQatnashgan(arr);
+// console.log(`Eng ko'p takrorlangan raqam: ${result}`);
 
 
 
