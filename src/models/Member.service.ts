@@ -19,11 +19,11 @@ class MemberService {
 
     try {
       const result = await this.memberModel.create(input);
+      console.log(result)
       result.memberPassword = "";
       return result.toJSON();
     } catch (err) {
       console.log("Error, model:signup", err);
-
       throw new Errors(HttpCode.BAD_REQUEST, Message.USED_NICK_PHONE);
     }
   }
@@ -36,6 +36,7 @@ class MemberService {
         { memberNick: 1, memberPassword: 1 }
       )
       .exec();
+    console.log(member);  
     if (!member) throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
 
     const isMatch = await bcrypt.compare(
@@ -77,6 +78,7 @@ class MemberService {
       )
       .exec();
     if (!member) throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
+    
 
     const isMatch = await bcrypt.compare(
       input.memberPassword,
@@ -87,9 +89,9 @@ class MemberService {
     if (!isMatch) {
       throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
     }
-
     return await this.memberModel.findById(member._id).exec();
   }
 }
+
 
 export default MemberService;

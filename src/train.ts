@@ -1,20 +1,32 @@
 
 
-function UzunSoz(text: string): string {
-    const words = text.split(/\s+/);
-    let engUzun = '';
-    words.forEach(word => {
-        if (word.length > engUzun.length) {
-            engUzun  = word;
-        }
-    });
 
-    return engUzun ;
+function unliHarf(str: string): number {
+    return (str.match(/[aeiouAEIOU]/g) || []).length;
 }
 
-const text = "I came from Uzbekistan!";
-const result = UzunSoz(text);
-console.log(`Eng uzun so'z: "${result}"`);
+console.log(unliHarf("Parker")); // 2
+
+
+
+
+
+
+// function UzunSoz(text: string): string {
+//     const words = text.split(/\s+/);
+//     let engUzun = '';
+//     words.forEach(word => {
+//         if (word.length > engUzun.length) {
+//             engUzun  = word;
+//         }
+//     });
+
+//     return engUzun ;
+// }
+
+// const text = "I came from Uzbekistan!";
+// const result = UzunSoz(text);
+// console.log(`Eng uzun so'z: "${result}"`);
 
 
 
