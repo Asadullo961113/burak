@@ -1,11 +1,26 @@
+function reverseSentence(gap: string): string {
+ 
+    const sozlar = gap.split(' ');
 
+    const reversedWords = sozlar.map(word => word.split('').reverse().join(''));
 
-
-function unliHarf(str: string): number {
-    return (str.match(/[aeiouAEIOU]/g) || []).length;
+    return reversedWords.join(' ');
 }
 
-console.log(unliHarf("Parker")); // 2
+console.log(reverseSentence("g'ayrat qilamiz MIT 18!")); // "tarya'g zimaliq TIM !81"
+
+
+
+
+
+
+
+
+// function unliHarf(str: string): number {
+//     return (str.match(/[aeiouAEIOU]/g) || []).length;
+// }
+
+// console.log(unliHarf("Parker")); // 2
 
 
 
