@@ -1,5 +1,5 @@
 import { Admin } from './../../node_modules/connect-mongodb-session/node_modules/mongodb/src/admin';
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { T } from "../libs/types/common";
 import MemberService from "../models/Member.service";
 import { AdminRequest,LoginInput, MemberInput } from "../libs/types/member";
@@ -48,11 +48,9 @@ restaurantController.processSignup = async (req: AdminRequest, res: Response) =>
     const newMember: MemberInput = req.body;
     newMember.memberType = MemberType.RESTAURANT;
     const result = await memberService.processSignup(newMember);
-    // TODO: SESSIONS AUTHENTICATION
     req.session.member = result;
     req.session.save(() => {
       res.send(result)
-        // res.redirect("/admin/product/all")
     })
     } catch (err) {
     console.log("Error, processSignup:", err);
@@ -67,11 +65,9 @@ restaurantController.processLogin = async (req: AdminRequest, res: Response) => 
 
     const input: LoginInput = req.body;
     const result = await memberService.processLogin(input);
-    // TODO: SESSIONS AUTHENTICATION
     req.session.member = result;
     req.session.save(() => {
       res.send(result)
-        // res.redirect("/admin/product/all")
     })
   } catch (err) {
     console.log("Error, processLogin:", err);
@@ -104,5 +100,19 @@ restaurantController.checkoutSession = async (
       res.send(err)
   }
 };
+
+restaurantController.verifyRestaurant = (
+  req: AdminRequest,
+  res: Response,
+  next: NextFunction
+) => {
+  if (req.session?.member?.memberType === MemberType.RESTAURANT) {
+      req.member = req.session.member;
+      next();
+  } else {
+      const message = Message.NOT_AUTHENTICATED;
+      res.send(`<script>alert('${message}'); window.location.replace('/admin/login')</script>`)
+  }
+}
 
 export default restaurantController;
