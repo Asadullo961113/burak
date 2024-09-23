@@ -1,13 +1,32 @@
-function reverseSentence(gap: string): string {
- 
-    const sozlar = gap.split(' ');
-
-    const reversedWords = sozlar.map(word => word.split('').reverse().join(''));
-
-    return reversedWords.join(' ');
+function getSquareNumbers(numbers: number[]): { number: number, square: number }[] {
+    return numbers.map(num => ({
+        number: num,
+        square: num * num
+    }));
 }
 
-console.log(reverseSentence("g'ayrat qilamiz MIT 18!")); // "tarya'g zimaliq TIM !81"
+
+console.log(getSquareNumbers([1, 2, 3])); 
+
+// Natija: [{ number: 1, square: 1 }, { number: 2, square: 4 }, { number: 3, square: 9 }]
+
+
+
+
+
+
+
+
+// function reverseSentence(gap: string): string {
+ 
+//     const sozlar = gap.split(' ');
+
+//     const reversedWords = sozlar.map(word => word.split('').reverse().join(''));
+
+//     return reversedWords.join(' ');
+// }
+
+// console.log(reverseSentence("g'ayrat qilamiz MIT 18!")); // "tarya'g zimaliq TIM !81"
 
 
 
