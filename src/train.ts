@@ -8,9 +8,9 @@ function palindromCheck(word: string): boolean {
 }
 
 
-console.log(palindromCheck("dad")); // true
-console.log(palindromCheck("son")); // false
-console.log(palindromCheck("A man a plan a canal Panama")); // true
+console.log(palindromCheck("non")); // true
+console.log(palindromCheck("sut")); // false
+
 
 
 
