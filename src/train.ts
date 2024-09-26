@@ -1,12 +1,32 @@
-function getSquareNumbers(numbers: number[]): { number: number, square: number }[] {
-    return numbers.map(num => ({
-        number: num,
-        square: num * num
-    }));
+function palindromCheck(word: string): boolean {
+
+    const cleanedWord = word.toLowerCase().replace(/\s+/g, '');
+
+    const reversedWord = cleanedWord.split('').reverse().join('');
+    
+    return cleanedWord === reversedWord;
 }
 
 
-console.log(getSquareNumbers([1, 2, 3])); 
+console.log(palindromCheck("dad")); // true
+console.log(palindromCheck("son")); // false
+console.log(palindromCheck("A man a plan a canal Panama")); // true
+
+
+
+
+
+
+
+// function getSquareNumbers(numbers: number[]): { number: number, square: number }[] {
+//     return numbers.map(num => ({
+//         number: num,
+//         square: num * num
+//     }));
+// }
+
+
+// console.log(getSquareNumbers([1, 2, 3])); 
 
 // Natija: [{ number: 1, square: 1 }, { number: 2, square: 4 }, { number: 3, square: 9 }]
 

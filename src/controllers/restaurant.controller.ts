@@ -10,7 +10,8 @@ import Errors, { HttpCode, Message } from "../libs/Errors";
 const memberService = new MemberService();
 
 const restaurantController: T = {};
-restaurantController.goHome = (req: Request, res: Response) => {
+
+restaurantController.goHome = async (req: Request, res: Response) => {
   try {
     console.log("goHome");
     res.render("home");
@@ -30,7 +31,7 @@ restaurantController.getSignup = async (req: Request, res: Response) => {
   }
 };
 
-restaurantController.getLogin = (req: Request, res: Response) => {
+restaurantController.getLogin = async (req: Request, res: Response) => {
   try {
     console.log("getLogin");
     res.render("login");
@@ -75,7 +76,7 @@ restaurantController.processLogin = async (req: AdminRequest, res: Response) => 
     })
   } catch (err) {
     console.log("Error, processLogin:", err);
-    const message = err instanceof Error ? err.message : Message.SOMETHING_WENT_WRONG;
+    const message = err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
     res.send(`<script>alert(${message}); window.location.replace('/admin/signup')</script>`)
   }
 };
@@ -89,6 +90,31 @@ restaurantController.logout = async (req: AdminRequest, res: Response) => {
   } catch (err) {
       console.log("Error, ProcessLogin", err);
       res.redirect('/admin')
+  }
+};
+
+restaurantController.getUsers = async (req: Request, res: Response) => {
+  try {
+    console.log("getUsers");
+    const result = await memberService.getUsers();
+    if (result.length === 0 ) 
+      {res.render("users", { message: 'No data found', users: [] })}
+    else {res.render("users", { users: result });}
+  } catch (err) {
+    console.log("Error, getUsers:", err);
+    res.redirect("/admin/login");
+  }
+};
+
+restaurantController.updateChosenUser = async (req: Request, res: Response) => {
+  try {
+    console.log("updateChosenUser");
+    const result = await memberService.updateChosenUser(req.body);
+    res.status(HttpCode.OK).json({ data: result });
+  } catch (err) {
+    console.log("Error, updateChosenUser:", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
+    else res.status(Errors.standart.code).json(Errors.standart);
   }
 };
 
@@ -117,6 +143,6 @@ restaurantController.verifyRestaurant = (
       const message = Message.NOT_AUTHENTICATED;
       res.send(`<script>alert('${message}'); window.location.replace('/admin/login')</script>`)
   }
-}
+};
 
 export default restaurantController;

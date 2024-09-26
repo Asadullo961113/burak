@@ -13,6 +13,7 @@ class ProductService {
 
    public async getAllProducts(): Promise<Product[]> {
       const result = await this.productModel.find().exec();
+      console.log(result)
       return result;
     }
 

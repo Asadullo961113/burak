@@ -17,6 +17,7 @@ productController.getAllProducts = async (req: Request, res: Response) => {
     try {
       console.log("getAllProducts");
       const data = await productService.getAllProducts();
+      console.log("data:",data)
        
 
       res.render("products",{ products: data })
@@ -36,7 +37,7 @@ productController.createNewProduct = async (req: AdminRequest, res: Response) =>
         throw new Errors(HttpCode.INTERNAL_SERVER_ERROR,Message.CREATE_FAILED)
       const data: ProductInput = req.body;
       data.productImages = req.files?.map(ele => {
-         return ele.path.replace(/\\/g,'');
+         return ele.path.replace(/\\/g,'/');
       })
       
       await productService.createNewProduct(data);

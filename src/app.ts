@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(morgan(MORGAN_FORMAT));
 
-/** 2-SESSIONS **/
+/** 2-SESSIONS **/  //  authentication   authorization
 app.use(
     session({
         secret: String(process.env.SESSION_SECRET),
