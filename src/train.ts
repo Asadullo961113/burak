@@ -1,15 +1,39 @@
-function palindromCheck(word: string): boolean {
+function calculateSumOfNumbers(values: any[]): number {
+    let sum = 0;
+    for (const value of values) {
+        if (typeof value === 'number') {
+            sum += value;
+        }
+    }
 
-    const cleanedWord = word.toLowerCase().replace(/\s+/g, '');
-
-    const reversedWord = cleanedWord.split('').reverse().join('');
-    
-    return cleanedWord === reversedWord;
+    return sum;
 }
 
+console.log(calculateSumOfNumbers([10, "10", {son: 10}, true, 35])); // 45
 
-console.log(palindromCheck("non")); // true
-console.log(palindromCheck("sut")); // false
+
+
+
+
+
+
+
+
+
+
+
+// function palindromCheck(word: string): boolean {
+
+//     const cleanedWord = word.toLowerCase().replace(/\s+/g, '');
+
+//     const reversedWord = cleanedWord.split('').reverse().join('');
+    
+//     return cleanedWord === reversedWord;
+// }
+
+
+// console.log(palindromCheck("non")); // true
+// console.log(palindromCheck("sut")); // false
 
 
 
