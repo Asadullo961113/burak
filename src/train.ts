@@ -1,15 +1,34 @@
-function calculateSumOfNumbers(values: any[]): number {
-    let sum = 0;
-    for (const value of values) {
-        if (typeof value === 'number') {
-            sum += value;
-        }
-    }
-
-    return sum;
+function objectToArray<T>(obj: Record<string, T>): [string, T][] {
+    return Object.entries(obj) as [string, T][];
 }
 
-console.log(calculateSumOfNumbers([10, "10", {son: 10}, true, 35])); // 45
+const result = objectToArray({ a: 10, b: 20 });
+console.log(result); // [['a', 10], ['b', 20]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function calculateSumOfNumbers(values: any[]): number {
+//     let sum = 0;
+//     for (const value of values) {
+//         if (typeof value === 'number') {
+//             sum += value;
+//         }
+//     }
+
+//     return sum;
+// }
+
+// console.log(calculateSumOfNumbers([10, "10", {son: 10}, true, 35])); // 45
 
 
 
