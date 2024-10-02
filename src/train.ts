@@ -3,7 +3,7 @@ function objectToArray<T>(obj: Record<string, T>): [string, T][] {
 }
 
 const result = objectToArray({ a: 10, b: 20 });
-console.log(result); // [['a', 10], ['b', 20]]
+console.log(result); // [['a', 10], ['b', 20]] 
 
 
 

@@ -5,10 +5,10 @@ $(function () {
     const selectedValue = $(".product-collection").val();
 
     if (selectedValue === "DRINK") {
-      $("#product-collection").hide();
+      $("#product-size").hide();
       $("#product-volume").show();
     } else {
-      $("#product-collection").show();
+      $("#product-size").show();
       $("#product-volume").hide();
     }
   });
@@ -33,8 +33,8 @@ $(function () {
         productStatus: productStatus,
       });
       const result = response.data;
-      console.log("javobgarlik", response.data);
-      if (result.data) {
+      console.log("javobgarlik", result);
+      if (result) {
         console.log("Product updated!");
         $(".new-product-status").blur();
       } else alert("Product update failed!");
