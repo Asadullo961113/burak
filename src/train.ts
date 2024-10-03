@@ -1,9 +1,30 @@
-function objectToArray<T>(obj: Record<string, T>): [string, T][] {
-    return Object.entries(obj) as [string, T][];
+function hasProperty<T extends object>(obj: T, key: string): boolean {
+    return key in obj;
 }
 
-const result = objectToArray({ a: 10, b: 20 });
-console.log(result); // [['a', 10], ['b', 20]] 
+console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); // true
+console.log(hasProperty({ name: "BMW", model: "M3" }, "year"));  // false
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function objectToArray<T>(obj: Record<string, T>): [string, T][] {
+//     return Object.entries(obj) as [string, T][];
+// }
+
+// const result = objectToArray({ a: 10, b: 20 });
+// console.log(result); // [['a', 10], ['b', 20]] 
 
 
 
