@@ -1,9 +1,42 @@
-function hasProperty<T extends object>(obj: T, key: string): boolean {
-    return key in obj;
+
+
+function calculate(expression: string): number {
+
+    const numbers: string[] = expression.split("+").map(num => num.trim());
+
+    const sum: number = numbers.reduce((acc, curr) => acc + parseFloat(curr), 0);
+    
+    return sum;
 }
 
-console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); // true
-console.log(hasProperty({ name: "BMW", model: "M3" }, "year"));  // false
+console.log(calculate("1 + 3")); // 4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function hasProperty<T extends object>(obj: T, key: string): boolean {
+//     return key in obj;
+// }
+
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); // true
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "year"));  // false
 
 
 
