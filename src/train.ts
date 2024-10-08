@@ -1,15 +1,46 @@
 
 
-function calculate(expression: string): number {
+function missingNumber(nums: number[]): number {
+    nums.sort((a, b) => a - b);
 
-    const numbers: string[] = expression.split("+").map(num => num.trim());
-
-    const sum: number = numbers.reduce((acc, curr) => acc + parseFloat(curr), 0);
-    
-    return sum;
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] !== i) {
+            return i; 
+        }
+    }
+    return nums.length;
 }
 
-console.log(calculate("1 + 3")); // 4
+
+console.log(missingNumber([3, 0, 1])); // 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function calculate(expression: string): number {
+
+//     const numbers: string[] = expression.split("+").map(num => num.trim());
+
+//     const sum: number = numbers.reduce((acc, curr) => acc + parseFloat(curr), 0);
+    
+//     return sum;
+// }
+
+// console.log(calculate("1 + 3")); // 4
 
 
 
