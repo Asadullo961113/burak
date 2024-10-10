@@ -1,18 +1,36 @@
 
-
-function missingNumber(nums: number[]): number {
-    nums.sort((a, b) => a - b);
-
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i] !== i) {
-            return i; 
-        }
-    }
-    return nums.length;
+function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+    const mergedArray = arr1.concat(arr2);
+    mergedArray.sort((a, b) => a - b);
+    return mergedArray;
 }
 
 
-console.log(missingNumber([3, 0, 1])); // 2
+const result = mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]);
+console.log(result); // [0, 3, 4, 4, 6, 30, 31]
+
+
+
+
+
+
+
+
+
+
+// function missingNumber(nums: number[]): number {
+//     nums.sort((a, b) => a - b);
+
+//     for (let i = 0; i < nums.length; i++) {
+//         if (nums[i] !== i) {
+//             return i; 
+//         }
+//     }
+//     return nums.length;
+// }
+
+
+// console.log(missingNumber([3, 0, 1])); // 2
 
 
 
