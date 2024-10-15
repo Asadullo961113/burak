@@ -1,16 +1,34 @@
 
-function sumOdds(number: number): number {
-    let count = 0;
-
-    for (let i = 1; i < number; i += 2) {
-        count++;
+function countChars(s: string): { [key: string]: number } {
+    const result: { [key: string]: number } = {};
+    
+    for (let char of s) {
+        if (result[char]) {
+            result[char] += 1;  
+        } else {
+            result[char] = 1;   
+        }
     }
-
-    return count;
+    return result;
 }
+console.log(countChars("hello"));  // { h: 1, e: 1, l: 2, o: 1 }
 
-console.log(sumOdds(9));  // 4
-console.log(sumOdds(11)); // 5
+
+
+
+
+// function sumOdds(number: number): number {
+//     let count = 0;
+
+//     for (let i = 1; i < number; i += 2) {
+//         count++;
+//     }
+
+//     return count;
+// }
+
+// console.log(sumOdds(9));  // 4
+// console.log(sumOdds(11)); // 5
 
 
 
