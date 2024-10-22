@@ -1,20 +1,33 @@
 
-function countOccurrences(obj: Record<string, any>, keyToCount: string): number {
-    let count = 0;
+function findIntersection(arr1: number[], arr2: number[]): number[] {
+    const set1 = new Set(arr1);
+    const set2 = new Set(arr2);
+
+    const intersection = [...set1].filter(value => set2.has(value));
+
+    return intersection;
+}
+console.log(findIntersection([1, 2, 3], [3, 2, 0]));  // return [2, 3]
+
+
+
+
+// function countOccurrences(obj: Record<string, any>, keyToCount: string): number {
+//     let count = 0;
   
-    for (const key in obj) {
-      if (key === keyToCount) {
-        count++;
-      }
-      if (typeof obj[key] === 'object' && obj[key] !== null) {
-        count += countOccurrences(obj[key], keyToCount);
-      }
-    }
+//     for (const key in obj) {
+//       if (key === keyToCount) {
+//         count++;
+//       }
+//       if (typeof obj[key] === 'object' && obj[key] !== null) {
+//         count += countOccurrences(obj[key], keyToCount);
+//       }
+//     }
   
-    return count;
-  }
-  const data = { model: 'Bugatti', steer: { model: 'HANKOOK', size: 30 } };
-  console.log(countOccurrences(data, 'model')); // Natija: 2
+//     return count;
+//   }
+//   const data = { model: 'Bugatti', steer: { model: 'HANKOOK', size: 30 } };
+//   console.log(countOccurrences(data, 'model')); // Natija: 2
   
 
 
