@@ -41,7 +41,7 @@ router.get(
 /** Product **/
 
 router.get(
-    "/member/all",
+    "/product/all",
     productController.getProducts
 
 )

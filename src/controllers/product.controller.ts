@@ -16,19 +16,19 @@ const productController: T = {};
 productController.getProducts = async (req: Request, res: Response) => {
   try {
     console.log("getProducts");
-    const {page, limit, order, productCollection, search} = req.query
+    const {page, limit, order, productCollection, search} = req.query;
     console.log(req.query)
     const inquiry: ProductInquiry = {
       order:String(order),
       page:Number(page),
       limit:Number(limit),
-    }
-    if(productCollection) inquiry.productCollection = productCollection as ProductCollection
+    };
+    if(productCollection) { inquiry.productCollection = productCollection as ProductCollection };
     if(search) inquiry.search = String(search)
 
     const result = await productService.getProducts(inquiry)
     
-    res.status(HttpCode.OK).json({ result: "DONE" });
+    res.status(HttpCode.OK).json(result);
   } catch (err) {
     console.log("Error, getAllProducts", err);
     if (err instanceof Errors) res.status(err.code).json(err);
@@ -37,13 +37,13 @@ productController.getProducts = async (req: Request, res: Response) => {
 };
 
 productController.getProduct = async (
-  req: ExtendedRequest | any,
+  req: ExtendedRequest,
   res: Response
 ) => {
   try {
     console.log("getProduct");
     const { id } = req.params;
-    console.log("request malumotlar", req.params);
+    console.log(req.member)
     const memberId = req.member?._id ?? null;
     console.log("user ID: ", memberId);
 

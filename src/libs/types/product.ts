@@ -1,4 +1,4 @@
-import { ProductCollection } from './../enums/product.enum';
+
 import { ProductCollection, ProductSize, ProductStatus, ProductVolume } from "../enums/product.enum";
 import {ObjectId} from "mongoose"
 
