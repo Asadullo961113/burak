@@ -1,5 +1,5 @@
-
-import { ProductCollection, ProductSize, ProductStatus, ProductVolume } from "../enums/product.enum";
+import { ProductCollection } from "../enums/product.enum";
+import { ProductSize, ProductStatus, ProductVolume } from "../enums/product.enum";
 import {ObjectId} from "mongoose"
 
 export interface Product {
