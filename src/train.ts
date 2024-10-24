@@ -1,13 +1,33 @@
 
-function findIntersection(arr1: number[], arr2: number[]): number[] {
-    const set1 = new Set(arr1);
-    const set2 = new Set(arr2);
+function sumEvens(numbers: number[]): number {
+    return numbers
+      .filter(num => num % 2 === 0) 
+      .reduce((sum, num) => sum + num, 0);  
+  }
+  
+ 
+  console.log(sumEvens([1, 2, 3]));  // 2
+  console.log(sumEvens([1, 2, 3, 2]));  // 4
+  
 
-    const intersection = [...set1].filter(value => set2.has(value));
 
-    return intersection;
-}
-console.log(findIntersection([1, 2, 3], [3, 2, 0]));  // return [2, 3]
+
+
+
+
+
+
+
+
+// function findIntersection(arr1: number[], arr2: number[]): number[] {
+//     const set1 = new Set(arr1);
+//     const set2 = new Set(arr2);
+
+//     const intersection = [...set1].filter(value => set2.has(value));
+
+//     return intersection;
+// }
+// console.log(findIntersection([1, 2, 3], [3, 2, 0]));  // return [2, 3]
 
 
 
